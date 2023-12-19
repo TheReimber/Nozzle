@@ -1,0 +1,69 @@
+=SQRT((2/(B7-1))*((((B2/B6)^((B7-1)/B7))-1)))
+
+np.sqrt((2/(Engine_Y-1))*(pow((((Engine_PO/Engine_Pe),(Engine_Y-1)/Engine_Y)-1))))
+
+=B11*(2/(B7+1))^(1/(B7-1))
+
+Throat_rho = Engine_rho_0 * (pow((2/(Engine_Y +1)),(1/(Engine_Y-1))))
+
+=SQRT(B7*B8*B3*(2/(B7+1)))
+
+Throat_sos = np.sqrt(Engine_Y*Engine_Rspec*Engine_TO*(2/(Engine_Y+1)))
+
+=F3/(F5*F4)
+Throat_Area = ?????
+
+
+=B3*(B6/B2)^((B7-1)/B7)*Engine_TO
+Engine_TO * (pow((Engine_Pe/Engine_TO),((Engine_Y-1)/Engine_Y)))
+
+        =   B3      *        (B6    / B2)      ^((B7-1)     /    B7)
+Exit_Te = Engine_TO * (pow(Engine_Pe/Engine_PO),(Engine_Y-1) / Engine_Y))
+
+=SQRT(2*(((B2/B6)^((B7-1)/B7)-1)/(B7-1)))
+ExitMe = sqrt(2*(((pow(Engine_PO/Engine_Pe),(((Engine_Y-1)/Engine_Y)-1)/((Engine_Y-1)/Engine_Y))))
+
+
+=F2*SQRT((B7*B8*J6))
+SpeedAtExit = Throat_M_Ex_Engine*np.sqrt((Engine_Y*Engine_Rspec*Exit_Te))
+
+=B10/J5
+Throat_M_dot = Engine_Thrust / Exit_SpeedAtExit
+
+=SQRT(J2/PI())
+Exit_RE = np.sqrt(Exit_Ae/np.pi)
+
+
+=SQRT(F6/PI())
+Throat_R = np.sqrt(Throat_AreaOfThroat/np.pi)
+
+=F3/(F5*F4)
+Throat_AreaOfThroat = Throat_M_dot/(Throat_sos*Throat_rho)
+
+=SQRT(F6/PI())
+Throat_R = Throat_AreaOfThroat/np.pi
+
+=          F6                  * SQRT(((1/J3^2))              * (2/(B7+1)       *  (1+((B7-1)/2)*J3^2)) ^ ((B7+1)/(B7-1)))
+Exit_Ae =  Throat_AreaOfThroat * np.sqrt((1/(pow(Exit_Me,2))) * 2/(Engine_Y+1) * pow((1+((Engine_Y-1)/2) * (pow(Exit_Me,2) , ((Engine_Y+1)/(Engine_Y-1))))))
+
+Exit_Ae = Throat_AreaOfThroat * np.sqrt(((1 / Exit_Me**2)) * (2 / (Engine_Y + 1) * (1 + ((Engine_Y - 1) / 2) * Exit_Me**2))**((Engine_Y + 1) / (Engine_Y - 1)))
+
+############################################################################################
+
+=Tutorial_Values.$B$18*(1-COS(ASIN(C26/Tutorial_Values.$B$18)))+Tutorial_Values.$F$7
+
+=R1*(1-COS(ASIN(C26/R1)))+R
+
+=Xn/NoOfPoints*CurrentPoint(loopValue)
+NoOfPoints = 10
+
+XnArray = np.Array()
+for i in range(1,NoOfPoints):
+        xnArray = xN/i*NoOfPoints
+
+
+=Tutorial_Values.$B$18*(1-COS(ASIN(C26/Tutorial_Values.$B$18)))+Tutorial_Values.$F$7
+
+=R1*(1-COS(ASIN(XnArray[0]/R1)))+Throat_R
+
+(1-np.cos(arc(1/0.371)))+0.247
