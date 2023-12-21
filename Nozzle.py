@@ -131,12 +131,13 @@ YnList.extend(Yn2List)
 
 # Create DataFrame and load XnArray and YnArray in as X and Y values
 snsList = []
-
+# Create list with each point starting with x then y etc etc
 for i in range(0,len(XnList)-1):
     snsList.append([XnList[i],YnList[i]])
-
+# Copy the snsList into a data frame
 dataframe = pd.DataFrame(snsList, columns=['X', 'Y'])
 print(dataframe)
+#Plot Data frame
 sns.lineplot(data=dataframe,x='X',y='Y')
 plt.title("Linear Nozzle")
 plt.show()

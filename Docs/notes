@@ -100,5 +100,14 @@ N + ((L)/XnList[len()XnList]-1)*k
 
 =D37+(Tutorial_Values.$J$4-Tutorial_Values.$F$7)/9
 =YnList[0]+(RE-R)/9
+------------------------------------------------------------
 
 
+=D38+(Tutorial_Values.$J$4-Tutorial_Values.$F$7)/9
+Yn2List.append(Yn2List[j-1]+(RE-R)/9
+
+
+
+=Tutorial_Values.$B$18*(1-COS(ASIN(C26/Tutorial_Values.$B$18)))+Tutorial_Values.$F$7
+
+=R1*(1-np.cos(np.arcsin(XnList[j]/R1)))+Throat_R

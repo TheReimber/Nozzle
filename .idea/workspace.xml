@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f9547ca1-90e0-4d05-8d52-db27a8ee97cb" name="Changes" comment="Nozzle Program for Space Rocket with Linear Engine Nozzle">
+    <list default="true" id="f9547ca1-90e0-4d05-8d52-db27a8ee97cb" name="Changes" comment="Now Prints Out Calculations to Terminal Screen  and general clean up">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Docs/notes" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/notes" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Nozzle.py" beforeDir="false" afterPath="$PROJECT_DIR$/Nozzle.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TempDebug.py" beforeDir="false" afterPath="$PROJECT_DIR$/TempDebug.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +23,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
@@ -101,11 +103,29 @@
       <option name="project" value="LOCAL" />
       <updated>1703026502962</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Updated with both sections of the Throat and Exit combined both and plotted">
+      <option name="closed" value="true" />
+      <created>1703174941281</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1703174941281</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Now Prints Out Calculations to Terminal Screen  and general clean up">
+      <option name="closed" value="true" />
+      <created>1703175159167</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1703175159167</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Nozzle Program for Space Rocket with Linear Engine Nozzle" />
-    <option name="LAST_COMMIT_MESSAGE" value="Nozzle Program for Space Rocket with Linear Engine Nozzle" />
+    <MESSAGE value="Updated with both sections of the Throat and Exit combined both and plotted" />
+    <MESSAGE value="Now Prints Out Calculations to Terminal Screen  and general clean up" />
+    <option name="LAST_COMMIT_MESSAGE" value="Now Prints Out Calculations to Terminal Screen  and general clean up" />
   </component>
 </project>
