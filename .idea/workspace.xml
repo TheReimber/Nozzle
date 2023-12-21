@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f9547ca1-90e0-4d05-8d52-db27a8ee97cb" name="Changes" comment="Now Prints Out Calculations to Terminal Screen  and general clean up">
+    <list default="true" id="f9547ca1-90e0-4d05-8d52-db27a8ee97cb" name="Changes" comment="Updated Comments">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docs/notes" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/notes" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Nozzle.py" beforeDir="false" afterPath="$PROJECT_DIR$/Nozzle.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -119,13 +118,22 @@
       <option name="project" value="LOCAL" />
       <updated>1703175159167</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Updated Comments">
+      <option name="closed" value="true" />
+      <created>1703176035945</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1703176035945</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Nozzle Program for Space Rocket with Linear Engine Nozzle" />
     <MESSAGE value="Updated with both sections of the Throat and Exit combined both and plotted" />
     <MESSAGE value="Now Prints Out Calculations to Terminal Screen  and general clean up" />
-    <option name="LAST_COMMIT_MESSAGE" value="Now Prints Out Calculations to Terminal Screen  and general clean up" />
+    <MESSAGE value="Updated Comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated Comments" />
   </component>
 </project>
