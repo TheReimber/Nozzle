@@ -50,6 +50,8 @@ Exit_Ae = Throat_AreaOfThroat * np.sqrt(((1 / Exit_Me**2)) * (2 / (Engine_Y + 1)
 
 ############################################################################################
 
+None Linear Calcs
+
 =Tutorial_Values.$B$18*(1-COS(ASIN(C26/Tutorial_Values.$B$18)))+Tutorial_Values.$F$7
 
 =R1*(1-COS(ASIN(C26/R1)))+R
@@ -67,3 +69,36 @@ for i in range(1,NoOfPoints):
 =R1*(1-COS(ASIN(XnArray[0]/R1)))+Throat_R
 
 (1-np.cos(arc(1/0.371)))+0.247
+
+
+
+=Xn/NoOfPoints*loop
+
+
+
+
+##############################################################################################
+
+Linear Calcs
+
+X
+=
+=$C$37+((C$46)/B$35)*B27
+N + ((L)/XnList[len()XnList]-1)*k
+
+
+=$C$37+((C$46-$C$36)/B$35)*B28
+
+
+=XnList(len(XnList-1)+(L / XnList(len(XnList-2))*k '''''' loop == 1
+
+=$C$37+((C$46-$C$36)/B$35) *k   ### if k > 1
+
+=E15+B18*SIN(B19)
+=Ln + R1*np.sin(alpha)
+
+
+=D37+(Tutorial_Values.$J$4-Tutorial_Values.$F$7)/9
+=YnList[0]+(RE-R)/9
+
+
