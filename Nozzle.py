@@ -92,15 +92,13 @@ for i in range(1,NoOfPoints, 1):
 
 # Append with end calculated Value Xn
 XnList.append(Xn)
-#XnArray = np.array([XnList])
+
 
 # Create an array List holding all the calculated points Based on the end Value of Yn Taking into account the Zero value of Xn
 # For Inlet and Throat
 for j in range(0,NoOfPoints,1):
-
     YnList.append(R1 * (1 - np.cos(np.arcsin(XnList[j] / R1))) + Throat_R)
-    # else:
-    #     YnList.append(R1 * (1 - np.cos(np.arcsin(0 / R1))) + Throat_R)
+
 # Append with end calculated Value Yn
 YnList.append(Yn)
 
@@ -127,17 +125,15 @@ for l in range(0,NoOfPoints,1):
 
 # Add final item to list as it is a pre-calculated Item
 Yn2List.append(Exit_RE)
-
+# Combine Both lists into XnList and YnList
 XnList.extend(Xn2List)
 YnList.extend(Yn2List)
-print(XnList)
-print(YnList)
+
 # Create DataFrame and load XnArray and YnArray in as X and Y values
 snsList = []
 
 for i in range(0,len(XnList)-1):
     snsList.append([XnList[i],YnList[i]])
-
 
 dataframe = pd.DataFrame(snsList, columns=['X', 'Y'])
 print(dataframe)
@@ -145,7 +141,5 @@ sns.lineplot(data=dataframe,x='X',y='Y')
 plt.title("Linear Nozzle")
 plt.show()
 
-
-
-
-#CalcVals()
+# Show Calculations on terminal
+CalcVals()
