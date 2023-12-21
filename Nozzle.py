@@ -3,6 +3,57 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import pandas as pd
 
+# Define Functions
+def CalcVals():
+    print('\nThese are all calculations based on initial values of PO,To,Mol Mass,Cp,Pe,R_Uni and Throat_R :-\n')
+    print('Engine_PO_Pa', Engine_PO_Pa)
+    print('Engine_Pe_Pa', Engine_Pe_Pa)
+    print('Engine_Rspec', Engine_Rspec)
+    print('Engine_Y', Engine_Y)
+    print('Engine_rho_0', Engine_rho_0)
+    print('Engine_Thrust', Engine_Thrust)
+    print('Throat_M_Ex_Engine ', Throat_M_Ex_Engine)
+    print('Throat_rho', Throat_rho)
+    print('Throat_sos', Throat_sos)
+    print('Exit_Te', Exit_Te)
+    print('Exit_Me', Exit_Me)
+    print('Exit_SpeedAtExit', Exit_SpeedAtExit)
+    print('Throat_M_dot', Throat_M_dot)
+    print('Exit_RE', Exit_RE)
+    print('Throat_AreaOfThroat', Throat_AreaOfThroat)
+    print('Throat_R', Throat_R)
+    print('Exit_Ae', Exit_Ae)
+    print('Exit_RE', Exit_RE)
+    print('ExpansionRation', ExpansionRatio)
+    print('sqrtEpsilon', sqrtEpsilon)
+    print('Re', Re)
+    print('R1', R1)
+    print('alpha', alpha)
+    print('Xn', Xn)
+    print('Yn', Yn)
+    print('Ln', Ln)
+    print('L', L)
+    print('L1', L1)
+
+def CombineList(list1,list2):
+    list1.extend(list2)
+    return(list1)
+def plot(dataframe):
+    sns.lineplot(data=dataframe,x='X',y='Y')
+    plt.title("Linear Nozzle")
+    plt.show()
+def CreateDataFrame(x,y):
+    # Create DataFrame and load XnArray and YnArray in as X and Y values
+    snsList = []
+    for i in range(0,len(x)-1):
+        snsList.append([x[i],y[i]])
+
+    # Copy the snsList into a data frame
+    dataframe = pd.DataFrame(snsList, columns=['X', 'Y'])
+    print(dataframe)
+    return dataframe
+
+
 # Set Constant Variables
 Engine_PO = 15
 Engine_TO = 2500
@@ -50,37 +101,6 @@ XnList = []
 YnList = []
 Xn2List = []
 Yn2List = []
-def CalcVals():
-    print('\nThese are all calculations based on initial values of PO,To,Mol Mass,Cp,Pe,R_Uni and Throat_R :-\n')
-    print('Engine_PO_Pa', Engine_PO_Pa)
-    print('Engine_Pe_Pa', Engine_Pe_Pa)
-    print('Engine_Rspec', Engine_Rspec)
-    print('Engine_Y', Engine_Y)
-    print('Engine_rho_0', Engine_rho_0)
-    print('Engine_Thrust', Engine_Thrust)
-    print('Throat_M_Ex_Engine ', Throat_M_Ex_Engine)
-    print('Throat_rho', Throat_rho)
-    print('Throat_sos', Throat_sos)
-    print('Exit_Te', Exit_Te)
-    print('Exit_Me', Exit_Me)
-    print('Exit_SpeedAtExit', Exit_SpeedAtExit)
-    print('Throat_M_dot', Throat_M_dot)
-    print('Exit_RE', Exit_RE)
-    print('Throat_AreaOfThroat', Throat_AreaOfThroat)
-    print('Throat_R', Throat_R)
-    print('Exit_Ae', Exit_Ae)
-    print('Exit_RE', Exit_RE)
-    print('ExpansionRation', ExpansionRatio)
-    print('sqrtEpsilon', sqrtEpsilon)
-    print('Re', Re)
-    print('R1', R1)
-    print('alpha', alpha)
-    print('Xn', Xn)
-    print('Yn', Yn)
-    print('Ln', Ln)
-    print('L', L)
-    print('L1', L1)
-
 
 
 # Create an array List holding all the calculated points Based on the end Value of Xn and zero
@@ -102,7 +122,7 @@ for j in range(0,NoOfPoints,1):
 # Append with end calculated Value Yn
 YnList.append(Yn)
 
-# Create Second Part of Graph (Linear Section) for X (ignoring 0)
+# Create Second Part of Graph (Linear Section) for X (Moving Xn directly into list first)
 
 for k in range(0,NoOfPoints,1):
 
@@ -115,7 +135,7 @@ for k in range(0,NoOfPoints,1):
 
 
 for l in range(0,NoOfPoints,1):
-    # Place Last item from previous non linear calc into firt item in new list
+    # Place Last item from previous non-linear calc into first item in new list
 
     if l == 0:
         Yn2List.append(YnList[len(YnList)-1])
@@ -125,22 +145,17 @@ for l in range(0,NoOfPoints,1):
 
 # Add final item to list as it is a pre-calculated Item
 Yn2List.append(Exit_RE)
-# Combine Both lists into XnList and YnList
-XnList.extend(Xn2List)
-YnList.extend(Yn2List)
 
-# Create DataFrame and load XnArray and YnArray in as X and Y values
-snsList = []
-# Create list with each point starting with x then y etc etc
-for i in range(0,len(XnList)-1):
-    snsList.append([XnList[i],YnList[i]])
-# Copy the snsList into a data frame
-dataframe = pd.DataFrame(snsList, columns=['X', 'Y'])
-print(dataframe)
-#Plot Data frame
-sns.lineplot(data=dataframe,x='X',y='Y')
-plt.title("Linear Nozzle")
-plt.show()
+################
+# Function Calls
+################
 
+# Combine XnList and Xn2List together then YnList and Yn2List
+XnList = CombineList(XnList,Xn2List)
+YnList =CombineList(YnList,Yn2List)
 # Show Calculations on terminal
 CalcVals()
+#Get Dataframe Data
+DataFrame = CreateDataFrame(XnList,YnList)
+#Plot Data frame
+plot(DataFrame)
