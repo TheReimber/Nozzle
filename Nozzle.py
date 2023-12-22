@@ -1,58 +1,82 @@
-import numpy as np
-import seaborn as sns
 import matplotlib.pyplot as plt
+import numpy as np
 import pandas as pd
+import seaborn as sns
+from fpdf import FPDF
+
+CalcList = []
+
 
 # Define Functions
 def CalcVals():
-    print('\nThese are all calculations based on initial values of PO,To,Mol Mass,Cp,Pe,R_Uni and Throat_R :-\n')
-    print('Engine_PO_Pa', Engine_PO_Pa)
-    print('Engine_Pe_Pa', Engine_Pe_Pa)
-    print('Engine_Rspec', Engine_Rspec)
-    print('Engine_Y', Engine_Y)
-    print('Engine_rho_0', Engine_rho_0)
-    print('Engine_Thrust', Engine_Thrust)
-    print('Throat_M_Ex_Engine ', Throat_M_Ex_Engine)
-    print('Throat_rho', Throat_rho)
-    print('Throat_sos', Throat_sos)
-    print('Exit_Te', Exit_Te)
-    print('Exit_Me', Exit_Me)
-    print('Exit_SpeedAtExit', Exit_SpeedAtExit)
-    print('Throat_M_dot', Throat_M_dot)
-    print('Exit_RE', Exit_RE)
-    print('Throat_AreaOfThroat', Throat_AreaOfThroat)
-    print('Throat_R', Throat_R)
-    print('Exit_Ae', Exit_Ae)
-    print('Exit_RE', Exit_RE)
-    print('ExpansionRation', ExpansionRatio)
-    print('sqrtEpsilon', sqrtEpsilon)
-    print('Re', Re)
-    print('R1', R1)
-    print('alpha', alpha)
-    print('Xn', Xn)
-    print('Yn', Yn)
-    print('Ln', Ln)
-    print('L', L)
-    print('L1', L1)
+   # These are all calculations based on initial values of PO,To,Mol Mass,Cp,Pe,R_Uni and Throat_R
+   # and placed in a list for printing to a pdf later
+
+    CalcList.append(('Engine_PO_Pa'.ljust(20), Engine_PO_Pa))
+    CalcList.append(('Engine_Pe_Pa'.ljust(20), Engine_Pe_Pa))
+    CalcList.append(('Engine_Rspec'.ljust(20), Engine_Rspec))
+    CalcList.append(('Engine_Y'.ljust(20), Engine_Y))
+    CalcList.append(('Engine_rho_0'.ljust(20), Engine_rho_0))
+    CalcList.append(('Engine_Thrust'.ljust(20), Engine_Thrust))
+    CalcList.append(('Throat_M_Ex_Engine'.ljust(20), Throat_M_Ex_Engine))
+    CalcList.append(('Throat_rho'.ljust(20), Throat_rho))
+    CalcList.append(('Throat_sos'.ljust(20), Throat_sos))
+    CalcList.append(('Exit_Te'.ljust(20), Exit_Te))
+    CalcList.append(('Exit_Me'.ljust(20), Exit_Me))
+    CalcList.append(('Exit_SpeedAtExit'.ljust(20), Exit_SpeedAtExit))
+    CalcList.append(('Throat_M_dot'.ljust(20), Throat_M_dot))
+    CalcList.append(('Exit_RE'.ljust(20), Exit_RE))
+    CalcList.append(('Throat_AreaOfThroat'.ljust(20), Throat_AreaOfThroat))
+    CalcList.append(('Throat_R'.ljust(20), Throat_R))
+    CalcList.append(('Exit_Ae'.ljust(20), Exit_Ae))
+    CalcList.append(('Exit_RE'.ljust(20), Exit_RE))
+    CalcList.append(('ExpansionRation'.ljust(20), ExpansionRatio))
+    CalcList.append(('sqrtEpsilon'.ljust(20), sqrtEpsilon))
+    CalcList.append(('Re'.ljust(20), Re))
+    CalcList.append(('R1'.ljust(20), R1))
+    CalcList.append(('alpha'.ljust(20), alpha))
+    CalcList.append(('Xn'.ljust(20), Xn))
+    CalcList.append(('Yn'.ljust(20), Yn))
+    CalcList.append(('Ln'.ljust(20), Ln))
+    CalcList.append(('L'.ljust(20), L))
+    CalcList.append(('L1'.ljust(20), L1))
 
 def CombineList(list1,list2):
     list1.extend(list2)
-    return(list1)
+    return list1
 def plot(dataframe):
     sns.lineplot(data=dataframe,x='X',y='Y')
     plt.title("Linear Nozzle")
+    # Save Plot as PDF
+    plt.savefig('Plot.pdf')
     plt.show()
 def CreateDataFrame(x,y):
     # Create DataFrame and load XnArray and YnArray in as X and Y values
     snsList = []
     for i in range(0,len(x)-1):
         snsList.append([x[i],y[i]])
-
     # Copy the snsList into a data frame
+
     dataframe = pd.DataFrame(snsList, columns=['X', 'Y'])
-    print(dataframe)
+    dataframe.style.set_properties(**{'text-align': 'left'})
+
+    return dataframe
+def CreateCalcFrame(calcs):
+
+    dataframe = pd.DataFrame(calcs, columns=['Name'.ljust(20), 'Value'.ljust(12)])
+
     return dataframe
 
+
+def pdf_print(fileToPrint,filename):
+    print("Printing....")
+    pdf = FPDF()
+    pdf.add_page()
+    pdf.set_xy(0, 0)
+    pdf.set_font('arial', 'B', 13)
+    pdf.multi_cell(h=5.0, align='J', w=0, txt=fileToPrint, border=0)
+    pdf.output(filename, 'F')
+    print('Printing Done...')
 
 # Set Constant Variables
 Engine_PO = 15
@@ -94,7 +118,7 @@ L1 = R1 * np.sin(alpha)
 XN = 0.0961429549062482
 XE = 1.44886536002306
 
-# General Varibles
+# General Variables
 XY_ListComp = []
 NoOfPoints = 10
 XnList = []
@@ -155,7 +179,15 @@ XnList = CombineList(XnList,Xn2List)
 YnList =CombineList(YnList,Yn2List)
 # Show Calculations on terminal
 CalcVals()
+
+
 #Get Dataframe Data
 DataFrame = CreateDataFrame(XnList,YnList)
+# Print DataFrame and CalcList to files within program root directory
+pdf_print(str(DataFrame),'DataFrame')
+pdf_print(str(CreateCalcFrame(CalcList)),'Calculations')
+
 #Plot Data frame
 plot(DataFrame)
+
+
